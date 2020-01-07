@@ -21,7 +21,7 @@
     "@types/react": "^16.8.23",
     "@types/web-push": "^3.3.0",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
-    "@typescript-eslint/parser": "^2.5.0",
+    "@typescript-eslint/parser": "^2.15.0",
     "babel-jest": "^24.9.0",
     "babel-preset-power-assert": "^3.0.0",
     "eslint": "^6.5.1",
