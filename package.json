@@ -17,7 +17,7 @@
   "devDependencies": {
     "@babel/core": "^7.5.5",
     "@babel/preset-typescript": "^7.3.3",
-    "@types/node": "^12.7.9",
+    "@types/node": "^13.5.3",
     "@types/react": "^16.8.23",
     "@types/web-push": "^3.3.0",
     "@typescript-eslint/eslint-plugin": "^2.5.0",
