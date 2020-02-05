@@ -9,29 +9,29 @@
   "dependencies": {
     "@types/atob": "^2.1.2",
     "atob": "^2.1.2",
-    "next": "^9.0.7",
+    "next": "^9.2.1",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
-    "web-push": "^3.4.0"
+    "web-push": "^3.4.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.5.5",
-    "@babel/preset-typescript": "^7.3.3",
-    "@types/node": "^12.7.9",
-    "@types/react": "^16.8.23",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "@types/node": "^13.7.0",
+    "@types/react": "^16.9.19",
     "@types/web-push": "^3.3.0",
-    "@typescript-eslint/eslint-plugin": "^2.5.0",
-    "@typescript-eslint/parser": "^2.5.0",
-    "babel-jest": "^24.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.19.0",
+    "@typescript-eslint/parser": "^2.19.0",
+    "babel-jest": "^25.1.0",
     "babel-preset-power-assert": "^3.0.0",
-    "eslint": "^6.5.1",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-prettier": "^3.1.1",
-    "eslint-plugin-react": "^7.14.3",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^2.2.0",
-    "jest": "^24.9.0",
+    "jest": "^25.1.0",
     "power-assert": "^1.6.1",
     "prettier": "^1.18.2",
-    "typescript": "^3.5.3"
+    "typescript": "^3.7.5"
   }
 }
