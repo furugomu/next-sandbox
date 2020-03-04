@@ -11,7 +11,7 @@
     "atob": "^2.1.2",
     "next": "^9.2.1",
     "react": "^16.10.1",
-    "react-dom": "^16.10.1",
+    "react-dom": "^16.13.0",
     "web-push": "^3.4.3"
   },
   "devDependencies": {
