@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { title as mousechaserTitle } from "./mousechaser";
 import { title as webpushTitle } from "./webpush";
+import { title as webrtcTitle } from "./webrtc";
 import Head from "next/head";
 
 const Home = () => (
@@ -23,6 +24,11 @@ const Home = () => (
         <li>
           <Link href="/webpush">
             <a>{webpushTitle}</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/webrtc">
+            <a>{webrtcTitle}</a>
           </Link>
         </li>
       </ul>
