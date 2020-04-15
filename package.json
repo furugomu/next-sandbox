@@ -9,7 +9,7 @@
   "dependencies": {
     "@types/atob": "^2.1.2",
     "atob": "^2.1.2",
-    "next": "^9.3.2",
+    "next": "^9.3.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "web-push": "^3.4.3"
