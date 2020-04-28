@@ -26,11 +26,6 @@ const Home = () => (
             <a>{webpushTitle}</a>
           </Link>
         </li>
-        <li>
-          <Link href="/webrtc">
-            <a>{webrtcTitle}</a>
-          </Link>
-        </li>
       </ul>
     </div>
   </>
