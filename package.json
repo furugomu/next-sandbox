@@ -16,7 +16,7 @@
     "web-push": "^3.4.3"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
     "@types/node": "^13.13.4",
     "@types/react": "^16.9.34",
