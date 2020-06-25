@@ -17,7 +17,7 @@ const Page = () => {
   // service worker を登録する
   useEffect(() => {
     (async () => {
-      const sw = await navigator.serviceWorker.register("/static/sw.js");
+      const sw = await navigator.serviceWorker.register("/sw.js");
       setSw(sw);
       const subscription = await sw.pushManager.getSubscription();
       setSubscription(subscription);
