@@ -5,6 +5,7 @@ import { title as webpushTitle } from "./webpush";
 import { title as gqsTitle } from "./graphql-subscription";
 import { title as icalendarTitle } from "./icalendar";
 import { title as erogeTitle } from "./eroge";
+import { title as countupTitle } from "./countup";
 import Head from "next/head";
 
 const Home = () => (
@@ -41,6 +42,11 @@ const Home = () => (
         <li>
           <Link href="/eroge">
             <a>{erogeTitle}</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/countup">
+            <a>{countupTitle}</a>
           </Link>
         </li>
       </ul>
