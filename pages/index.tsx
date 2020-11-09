@@ -6,6 +6,7 @@ import { title as gqsTitle } from "./graphql-subscription";
 import { title as icalendarTitle } from "./icalendar";
 import { title as erogeTitle } from "./eroge";
 import { title as countupTitle } from "./countup";
+import { title as reactWindowTitle } from "./react-window";
 import Head from "next/head";
 
 const Home = () => (
@@ -47,6 +48,11 @@ const Home = () => (
         <li>
           <Link href="/countup">
             <a>{countupTitle}</a>
+          </Link>
+        </li>
+        <li>
+          <Link href="/react-window">
+            <a>{reactWindowTitle}</a>
           </Link>
         </li>
       </ul>
