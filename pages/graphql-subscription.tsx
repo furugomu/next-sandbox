@@ -33,7 +33,8 @@ const rootValue = {
   },
 };
 
-const url = "https://github.com/furugomu/next-sandbox/blob/master/pages/graphql-subscription.tsx";
+const url =
+  "https://github.com/furugomu/next-sandbox/blob/master/pages/graphql-subscription.tsx";
 
 const Page: FC = () => {
   const [list, append] = useReducer(
@@ -54,7 +55,9 @@ const Page: FC = () => {
         <title>{title}</title>
       </Head>
       <h1>{title}</h1>
-      <p>source: <a href={url}>{url}</a></p>
+      <p>
+        source: <a href={url}>{url}</a>
+      </p>
       <p>
         <button onClick={() => start()}>押すと開始</button>
       </p>
