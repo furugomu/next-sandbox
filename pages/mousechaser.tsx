@@ -60,7 +60,7 @@ const Hoge: FC<{ x: number; y: number }> = ({ x, y, children }) => (
       position: "fixed",
       left: 0,
       top: 0,
-      transform: `translate(${x}px, ${y}px)`
+      transform: `translate(${x}px, ${y}px)`,
     }}
   >
     <div style={{ transform: "translate(-50%, -50%)" }}>{children}</div>

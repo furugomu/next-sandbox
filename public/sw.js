@@ -1,5 +1,5 @@
 // プッシュ通知された
-self.addEventListener("push", event => {
+self.addEventListener("push", (event) => {
   console.log("[Service Worker] Push Received.");
   console.log(`[Service Worker] Push had this data: "${event.data.text()}"`);
 
@@ -7,14 +7,14 @@ self.addEventListener("push", event => {
   const options = {
     body: event.data.text(),
     icon: "/static/kuma.png",
-    badge: "/static/risu.png"
+    badge: "/static/risu.png",
   };
 
   event.waitUntil(self.registration.showNotification(title, options));
 });
 
 // 通知をクリックされた
-self.addEventListener("notificationclick", event => {
+self.addEventListener("notificationclick", (event) => {
   console.log("[Service Worker] Notification click Received.");
 
   event.notification.close();
