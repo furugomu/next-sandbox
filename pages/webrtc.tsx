@@ -5,7 +5,7 @@ import React, {
   useMemo,
   useCallback,
   useState,
-  useReducer
+  useReducer,
 } from "react";
 import Head from "next/head";
 
@@ -66,7 +66,7 @@ const useMesssages = () => {
   const [messages, dispatch] = useReducer(reducer, []);
   return {
     messages,
-    receiveMessage: (payload: string) => dispatch({ type: "receive", payload })
+    receiveMessage: (payload: string) => dispatch({ type: "receive", payload }),
   };
 };
 
@@ -79,7 +79,7 @@ const Alice: FC<{
     const peer = new RTCPeerConnection({ iceServers: [] });
     peer.onsignalingstatechange = () =>
       console.log("alice signalingstatechange", peer.signalingState);
-    peer.onicecandidate = e => console.log("alice icecandidate", e.candidate);
+    peer.onicecandidate = (e) => console.log("alice icecandidate", e.candidate);
     return peer;
   }, []);
   (window as any).alice = peer;
@@ -88,7 +88,7 @@ const Alice: FC<{
 
   const dataChannel = useMemo(() => {
     const dc = peer.createDataChannel("foo");
-    dc.onmessage = e => {
+    dc.onmessage = (e) => {
       console.log("alice message", e);
       receiveMessage(e.data);
     };
@@ -151,16 +151,16 @@ const Bob: FC<{
     const peer = new RTCPeerConnection({ iceServers: [] });
     peer.onsignalingstatechange = () =>
       console.log("bob signalingstatechange", peer.signalingState);
-    peer.ondatachannel = e => {
+    peer.ondatachannel = (e) => {
       const dc = e.channel;
       setDataChannel(dc);
-      dc.onmessage = e => {
+      dc.onmessage = (e) => {
         console.log("bob message", e);
         receiveMessage(e.data);
       };
     };
 
-    peer.onicecandidate = e => console.log("bob icecandidate", e.candidate);
+    peer.onicecandidate = (e) => console.log("bob icecandidate", e.candidate);
     return peer;
   }, [receiveMessage]);
   (window as any).bob = peer;
@@ -175,7 +175,7 @@ const Bob: FC<{
     await peer.setLocalDescription(a);
     setAnswer(a);
 
-    peer.onicecandidate = e => {
+    peer.onicecandidate = (e) => {
       if (!e.candidate) return;
       if (!peer.localDescription) return;
       setAnswer(peer.localDescription);
@@ -206,7 +206,7 @@ const Bob: FC<{
 
 // 入力した文字列を dataChannel に送る
 const DataChannelInput: FC<{ dataChannel: RTCDataChannel | null }> = ({
-  dataChannel
+  dataChannel,
 }) => {
   const [ready, setReady] = useState(false);
   const [message, setMessage] = useState("");
@@ -230,14 +230,14 @@ const DataChannelInput: FC<{ dataChannel: RTCDataChannel | null }> = ({
   }, [dataChannel]);
   return (
     <form
-      onSubmit={e => {
+      onSubmit={(e) => {
         e.preventDefault();
         send();
       }}
     >
       <input
         value={message}
-        onChange={e => setMessage(e.target.value)}
+        onChange={(e) => setMessage(e.target.value)}
         disabled={!ready}
       />
       <button disabled={!ready}>send</button>

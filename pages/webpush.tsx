@@ -3,7 +3,7 @@ import Head from "next/head";
 import urlB64ToUint8Array from "../src/url-b64-to-uint8-array";
 import { PUBLIC_KEY } from "../src/webpush-keys";
 
-export const title = 'プッシュ通知'
+export const title = "プッシュ通知";
 
 const applicationServerKey = urlB64ToUint8Array(PUBLIC_KEY);
 
@@ -29,7 +29,7 @@ const Page = () => {
     if (!sw) return;
     const subscription = await sw.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey
+      applicationServerKey,
     });
     setSubscription(subscription);
   }, [sw]);
@@ -39,7 +39,7 @@ const Page = () => {
     if (!subscription) return;
     const res = await fetch("/api/push", {
       method: "POST",
-      body: JSON.stringify({ message, subscription })
+      body: JSON.stringify({ message, subscription }),
     });
     console.log("やったか！？", res);
   }, [subscription, message]);
@@ -63,7 +63,7 @@ const Page = () => {
           <input
             type="text"
             value={message}
-            onChange={e => setMessage(e.target.value)}
+            onChange={(e) => setMessage(e.target.value)}
             size={60}
           ></input>
           <button disabled={!subscription} onClick={() => push()}>
