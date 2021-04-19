@@ -16,13 +16,14 @@ module.exports = {
 
     // react
     "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
 
     // react hooks
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
 
     // typescript
-    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
   },
   overrides: [
     // .eslintrc.js 等の設定ファイル

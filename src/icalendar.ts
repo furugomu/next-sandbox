@@ -1,6 +1,3 @@
-// https://tools.ietf.org/html/rfc2445
-import { format, addMinutes } from "date-fns";
-
 export const calendar = (events: Event[]) =>
   component(
     "vcalendar",
@@ -38,7 +35,7 @@ const component = (name: string, props: Props, children?: string[]) => {
 type Value = string | Date; // 他は省略
 const value = (v: Value) => {
   if (v instanceof Date) {
-    return format(addMinutes(v, v.getTimezoneOffset()), "yyyyMMdd'T'HHmmss'Z'");
+    return v.toISOString()
   } else {
     return v;
   }

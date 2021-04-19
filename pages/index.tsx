@@ -1,15 +1,28 @@
-import React from "react";
-import Link from "next/link";
-import { title as mousechaserTitle } from "./mousechaser";
-import { title as webpushTitle } from "./webpush";
-import { title as gqsTitle } from "./graphql-subscription";
-import { title as icalendarTitle } from "./icalendar";
-import { title as erogeTitle } from "./eroge";
-import { title as countupTitle } from "./countup";
-import { title as reactWindowTitle } from "./react-window";
+import fs from "fs/promises";
+import { GetStaticProps } from "next";
 import Head from "next/head";
+import Link from "next/link";
+import path from "path";
+import React from "react";
 
-const Home = () => (
+type Page = { url: string; title: string };
+
+type Props = { pages: Page[] };
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const pages: Page[] = [];
+  const pagesDirectory = path.join(process.cwd(), "pages");
+  const entries = await fs.readdir(pagesDirectory);
+  for (const filename of entries) {
+    if (!filename.endsWith(".tsx")) continue;
+    const name = path.basename(filename, ".tsx");
+    const mod = await import(`./${name}`);
+    if (mod.title) pages.push({ url: `/${name}`, title: mod.title });
+  }
+  return { props: { pages } };
+};
+
+const Home = ({ pages }: Props) => (
   <>
     <Head>
       <title>こんにちは</title>
@@ -20,41 +33,13 @@ const Home = () => (
         <a href="https://github.com/furugomu/next-sandbox">ソース</a>
       </p>
       <ul>
-        <li>
-          <Link href="/mousechaser">
-            <a>{mousechaserTitle}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/webpush">
-            <a>{webpushTitle}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/graphql-subscription">
-            <a>{gqsTitle}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/icalendar">
-            <a>{icalendarTitle}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/eroge">
-            <a>{erogeTitle}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/countup">
-            <a>{countupTitle}</a>
-          </Link>
-        </li>
-        <li>
-          <Link href="/react-window">
-            <a>{reactWindowTitle}</a>
-          </Link>
-        </li>
+        {pages.map(({ url, title }) => (
+          <li key={url}>
+            <Link href={url}>
+              <a>{title}</a>
+            </Link>
+          </li>
+        ))}
       </ul>
     </div>
   </>
